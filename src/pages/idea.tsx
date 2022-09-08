@@ -1,4 +1,6 @@
 import { useState } from "react";
+import TinderCard from 'react-tinder-card'
+
 
 
 export default function Software() {
@@ -26,12 +28,32 @@ export default function Software() {
         setLoading(false)
     }
 
+    const onSwipe = (direction:any) => {
+        console.log('You swiped: ' + direction)
+        if (direction === 'right') {
+            console.log('You liked it')
+        }
+        else if(direction === 'left') {
+            console.log('You disliked it')
+        }
+      }
+      
+
   return (  
     <>
     <div>
+      
         {loading ? <p>Loading...</p> : null}
-        <div>{data}</div>
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit}>Generate</button>
+        <div className="cardContainer"> 
+            <TinderCard className="swipe" onSwipe={onSwipe} preventSwipe={['up', 'down']}
+            onSwipeRequirementFulfilled={onSwipe}>
+                <div style={{backgroundImage: 'url(https://source.unsplash.com/random)'}} className="card">
+                    <h3>{data}</h3>
+                </div>
+
+            </TinderCard>   
+        </div>
     </div>
     </>
   )
