@@ -20,7 +20,9 @@ export default function Software() {
 
         });
         const result = await response.json();
-        setData(result);
+        let formatted = result.replace(/(\r\n|\n|\\n|\r)/gm, ` \n `);
+
+        setData(formatted);
         setLoading(false)
     }
 
