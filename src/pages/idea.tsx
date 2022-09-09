@@ -48,9 +48,7 @@ export default function Software() {
         <div className="cardContainer"> 
             <TinderCard className="swipe" onSwipe={onSwipe} preventSwipe={['up', 'down']}
             onSwipeRequirementFulfilled={onSwipe}>
-                <div style={{backgroundImage: 'url(https://source.unsplash.com/random)'}} className="card">
                     <h3>{data}</h3>
-                </div>
 
             </TinderCard>   
         </div>
