@@ -29,12 +29,12 @@ export default function Software() {
   };
 
   const onSwipe = (direction: any) => {
-    console.log("You swiped: " + direction);
+    // if swipe right the re-render the card
     if (direction === "right") {
-      console.log("You liked it");
-    } else if (direction === "left") {
-      console.log("You disliked it");
+      
     }
+
+    
   };
 
   return (
@@ -45,7 +45,7 @@ export default function Software() {
           <select
             name="topic"
             id=""
-            className="md:text-xl text-base resize rounded-md my-5 mx-5 py-3 md:py-5 px-3 md:px-5 text-third border-2 border-third"
+            className=" text-lg resize rounded-md my-5 mx-5 py-2 px-5  text-third border-2 border-third"
           >
             <option value="software">Software</option>
             <option value=" new business">Business</option>
@@ -57,15 +57,16 @@ export default function Software() {
             Generate
           </button>
         </form>
-        <div className="cardContainer">
+        <div className="flex justify-center">
           <TinderCard
-            className="swipe"
+            className="w-[40vw] h-[20vh] border-2 border-white flex justify-center py-10 text-2xl px-10"
             onSwipe={onSwipe}
             preventSwipe={["up", "down"]}
             onSwipeRequirementFulfilled={onSwipe}
           >
             <h3>{data}</h3>
           </TinderCard>
+          {/* <button onClick={restoreCard()}> Restore </button> */}
         </div>
       </div>
     </>
